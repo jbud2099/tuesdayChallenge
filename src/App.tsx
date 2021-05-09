@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Clock from './components/Clock';
+import FetchIndex from './TuesdayChallenge/FetchIndex';
 
-function App() {
+let testProp: string = 'Am I getting passed to the Clock component?'
+let optionalProp: string = 'You sure are!';
+
+    //1         //2
+const App: React.FunctionComponent = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="verticalCenter">
+        <Clock testProp={testProp} optionalProp={optionalProp} />
+        <FetchIndex />
+      </div>
     </div>
   );
 }
 
 export default App;
+
+/* 1. Our arrow function expression is given the name of 'App'
+   2. By including ':' after 'App', we denote that what follows the colon is the type that we are assigning to 'App'.
+      Here, we are digging into our named import of 'React', and assigning our 'App' the type of 
+     'FunctionComponent' (this is digging into our node modules, and more specifically, the @types packages 
+      that are installed). */
